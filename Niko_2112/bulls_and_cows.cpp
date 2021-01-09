@@ -1,9 +1,9 @@
-#include "bulls_and_cows.h"
+п»ї#include "bulls_and_cows.h"
 
 void BULLS_AND_COWS::play() {
 	setlocale(LC_ALL, "Russian");
 	srand(time(0));
-	std::cout << "Загадайте число и введите его: ";
+	std::cout << "Р—Р°РіР°РґР°Р№С‚Рµ С‡РёСЃР»Рѕ Рё РІРІРµРґРёС‚Рµ РµРіРѕ: ";
 	size_t number_user;
 	std::cin >> number_user;
 
@@ -36,13 +36,13 @@ void BULLS_AND_COWS::play() {
 	struct_1.digits = table_computer_digits;
 	vector_bulls_cows.push_back(struct_1);
 	num_of_attempts++;
-	std::cout << "Угадайте число компьютера: ";
+	std::cout << "РЈРіР°РґР°Р№С‚Рµ С‡РёСЃР»Рѕ РєРѕРјРїСЊСЋС‚РµСЂР°: ";
 	std::cin >> guessed_user_number;
 	std::vector< short> table_user_digits = digits_number(guessed_user_number);
 	std::pair < short, short> p2 = check_bulls_cows(table_user_digits, table_computer_number);
-	std::cout << "Ваше число: " << guessed_user_number << "\t\tЧисло компьютера: " << guessed_number;
-	std::cout << "\nКоличество быков: " << p2.first << "\t\tКоличество быков: " << p1.first;
-	std::cout << "\nКоличество коров: " << p2.second << "\t\tКоличество коров: " << p1.second << "\n";
+	std::cout << "Р’Р°С€Рµ С‡РёСЃР»Рѕ: " << guessed_user_number << "\t\tР§РёСЃР»Рѕ РєРѕРјРїСЊСЋС‚РµСЂР°: " << guessed_number;
+	std::cout << "\nРљРѕР»РёС‡РµСЃС‚РІРѕ Р±С‹РєРѕРІ: " << p2.first << "\t\tРљРѕР»РёС‡РµСЃС‚РІРѕ Р±С‹РєРѕРІ: " << p1.first;
+	std::cout << "\nРљРѕР»РёС‡РµСЃС‚РІРѕ РєРѕСЂРѕРІ: " << p2.second << "\t\tРљРѕР»РёС‡РµСЃС‚РІРѕ РєРѕСЂРѕРІ: " << p1.second << "\n";
 	
 
 	while (!(guessed_number == number_user or guessed_user_number == computer_number)) {
@@ -55,36 +55,36 @@ void BULLS_AND_COWS::play() {
 		struct_1.digits = table_digits;
 		vector_bulls_cows.push_back(struct_1);
 		num_of_attempts++;
-		std::cout << "Угадайте число компьютера: ";
+		std::cout << "РЈРіР°РґР°Р№С‚Рµ С‡РёСЃР»Рѕ РєРѕРјРїСЊСЋС‚РµСЂР°: ";
 		std::cin >> guessed_user_number;
 		std::vector< short> table_user_digits = digits_number(guessed_user_number);
 		std::pair < short, short> p2 = check_bulls_cows(table_user_digits, table_computer_number);
-		std::cout << "Ваше число: " << guessed_user_number << "\t\tЧисло компьютера: " << guessed_number;
-		std::cout << "\nКоличество быков: " << p2.first << "\t\tКоличество быков: " << p1.first;
-		std::cout << "\nКоличество коров: " << p2.second << "\t\tКоличество коров: " << p1.second << "\n";
+		std::cout << "Р’Р°С€Рµ С‡РёСЃР»Рѕ: " << guessed_user_number << "\t\tР§РёСЃР»Рѕ РєРѕРјРїСЊСЋС‚РµСЂР°: " << guessed_number;
+		std::cout << "\nРљРѕР»РёС‡РµСЃС‚РІРѕ Р±С‹РєРѕРІ: " << p2.first << "\t\tРљРѕР»РёС‡РµСЃС‚РІРѕ Р±С‹РєРѕРІ: " << p1.first;
+		std::cout << "\nРљРѕР»РёС‡РµСЃС‚РІРѕ РєРѕСЂРѕРІ: " << p2.second << "\t\tРљРѕР»РёС‡РµСЃС‚РІРѕ РєРѕСЂРѕРІ: " << p1.second << "\n";
 	}
 
 	if (guessed_number == number_user and guessed_user_number == computer_number) {
-		std::cout << ":::::::::::::::::::::::::НИЧЬЯ:::::::::::::::::::::::::" << std::endl;
-		std::cout << ":::::::::::::::::::::::::Компьютер загадал: " << computer_number << std::endl;
-		std::cout << ":::::::::::::::::::::::::Вы загадали: " << number_user << std::endl;
-		std::cout << ":::::::::::::::::::::::::Количество попыток: " << num_of_attempts << std::endl;
+		std::cout << ":::::::::::::::::::::::::РќРР§Р¬РЇ:::::::::::::::::::::::::" << std::endl;
+		std::cout << ":::::::::::::::::::::::::РљРѕРјРїСЊСЋС‚РµСЂ Р·Р°РіР°РґР°Р»: " << computer_number << std::endl;
+		std::cout << ":::::::::::::::::::::::::Р’С‹ Р·Р°РіР°РґР°Р»Рё: " << number_user << std::endl;
+		std::cout << ":::::::::::::::::::::::::РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРїС‹С‚РѕРє: " << num_of_attempts << std::endl;
 	}
 	else if (guessed_number == number_user) {
-		std::cout << ":::::::::::::::::::::::::ВЫ ПРОИГРАЛИ:::::::::::::::::::::::::" << std::endl;
-		std::cout << ":::::::::::::::::::::::::Компьютер загадал: " << computer_number << std::endl;
-		std::cout << ":::::::::::::::::::::::::Вы загадали: " << number_user << std::endl;
-		std::cout << ":::::::::::::::::::::::::Количество попыток: " << num_of_attempts << std::endl;
+		std::cout << ":::::::::::::::::::::::::Р’Р« РџР РћРР“Р РђР›Р:::::::::::::::::::::::::" << std::endl;
+		std::cout << ":::::::::::::::::::::::::РљРѕРјРїСЊСЋС‚РµСЂ Р·Р°РіР°РґР°Р»: " << computer_number << std::endl;
+		std::cout << ":::::::::::::::::::::::::Р’С‹ Р·Р°РіР°РґР°Р»Рё: " << number_user << std::endl;
+		std::cout << ":::::::::::::::::::::::::РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРїС‹С‚РѕРє: " << num_of_attempts << std::endl;
 	}
 	else if (guessed_user_number == computer_number) {
-		std::cout << ":::::::::::::::::::::::::ВЫ ПОБЕДИЛИ:::::::::::::::::::::::::" << std::endl;
-		std::cout << ":::::::::::::::::::::::::Компьютер загадал: " << computer_number << std::endl;
-		std::cout << ":::::::::::::::::::::::::Вы загадали: " << number_user << std::endl;
-		std::cout << ":::::::::::::::::::::::::Количество попыток: " << num_of_attempts << std::endl;
+		std::cout << ":::::::::::::::::::::::::Р’Р« РџРћР‘Р•Р”РР›Р:::::::::::::::::::::::::" << std::endl;
+		std::cout << ":::::::::::::::::::::::::РљРѕРјРїСЊСЋС‚РµСЂ Р·Р°РіР°РґР°Р»: " << computer_number << std::endl;
+		std::cout << ":::::::::::::::::::::::::Р’С‹ Р·Р°РіР°РґР°Р»Рё: " << number_user << std::endl;
+		std::cout << ":::::::::::::::::::::::::РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРїС‹С‚РѕРє: " << num_of_attempts << std::endl;
 	}
 }
 
-// проверка правильности ввода числа пользователем
+// РїСЂРѕРІРµСЂРєР° РїСЂР°РІРёР»СЊРЅРѕСЃС‚Рё РІРІРѕРґР° С‡РёСЃР»Р° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј
 bool BULLS_AND_COWS::check_user_number(size_t number) {
 	std::vector< uint8_t > digits(10, 0);
 	uint8_t number_signs = 0;
@@ -96,20 +96,20 @@ bool BULLS_AND_COWS::check_user_number(size_t number) {
 			digits[digit] = 1;
 		}
 		else {
-			std::cout << "Число не может сожержать одинаковых цифр\n";
+			std::cout << "Р§РёСЃР»Рѕ РЅРµ РјРѕР¶РµС‚ СЃРѕР¶РµСЂР¶Р°С‚СЊ РѕРґРёРЅР°РєРѕРІС‹С… С†РёС„СЂ\n";
 			return false;
 		}
 	}
 
 	if (number_signs != 4) {
-		std::cout << "Число должно быть четырехзначным \n";
+		std::cout << "Р§РёСЃР»Рѕ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ С‡РµС‚С‹СЂРµС…Р·РЅР°С‡РЅС‹Рј \n";
 		return false;
 	}
 
 	return true;
 }
 
-// проверка числа компьютера на правильность
+// РїСЂРѕРІРµСЂРєР° С‡РёСЃР»Р° РєРѕРјРїСЊСЋС‚РµСЂР° РЅР° РїСЂР°РІРёР»СЊРЅРѕСЃС‚СЊ
 bool BULLS_AND_COWS::check_computer_number(size_t number) {
 	std::vector< uint8_t > digits(10, 0);
 	uint8_t number_signs = 0;
@@ -132,7 +132,7 @@ bool BULLS_AND_COWS::check_computer_number(size_t number) {
 	return true;
 }
 
-// разделяем число на цифры по разрядам
+// СЂР°Р·РґРµР»СЏРµРј С‡РёСЃР»Рѕ РЅР° С†РёС„СЂС‹ РїРѕ СЂР°Р·СЂСЏРґР°Рј
 std::vector< short> BULLS_AND_COWS::digits_number(size_t number) {
 	std::vector<  short> table_digits(4, 0);
 
@@ -144,7 +144,7 @@ std::vector< short> BULLS_AND_COWS::digits_number(size_t number) {
 	return table_digits;
 }
 
-// считаем количество быков и количество коров, которые отгадал компьютер
+// СЃС‡РёС‚Р°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ Р±С‹РєРѕРІ Рё РєРѕР»РёС‡РµСЃС‚РІРѕ РєРѕСЂРѕРІ, РєРѕС‚РѕСЂС‹Рµ РѕС‚РіР°РґР°Р» РєРѕРјРїСЊСЋС‚РµСЂ
 std::pair < short, short> BULLS_AND_COWS::check_bulls_cows(std::vector< short>& table_guessed_number, std::vector< short>& table_user_number) {
 	short bulls = 0;
 	short cows = 0;
@@ -171,7 +171,7 @@ std::pair < short, short> BULLS_AND_COWS::check_bulls_cows(std::vector< short>& 
 	return p1;
 }
 
-// алгоритм поиска числа пользователя
+// Р°Р»РіРѕСЂРёС‚Рј РїРѕРёСЃРєР° С‡РёСЃР»Р° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 size_t BULLS_AND_COWS::algoritm(std::vector<BULLS_COWS>& vector_bulls_cows, short count) {
 
 	for (size_t guessed_number = 1000; guessed_number < 10000; guessed_number++) {

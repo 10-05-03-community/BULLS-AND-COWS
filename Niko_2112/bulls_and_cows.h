@@ -1,4 +1,4 @@
-#ifndef BULLS_AND_COWS_HPP
+﻿#ifndef BULLS_AND_COWS_HPP
 #define BULLS_AND_COWS_HPP
 #include <iostream>
 #include <vector>
